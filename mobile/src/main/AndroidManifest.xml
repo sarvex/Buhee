@@ -36,6 +36,11 @@
         <action android:name="com.sarvex.buhee.ACTION_MESSAGE_REPLY"/>
       </intent-filter>
     </receiver>
+
+    <meta-data
+      android:name="io.fabric.ApiKey"
+      android:value="a355546c764b59eac93b935815405095a72745ca"/>
   </application>
 
+  <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

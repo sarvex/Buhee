@@ -8,9 +8,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
+
+import com.crashlytics.android.Crashlytics;
+import com.optimizely.Optimizely;
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+
+import io.fabric.sdk.android.Fabric;
 
 public class MainActivity extends AppCompatActivity {
+
+  // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+  private static final String TWITTER_KEY = " yphxIgeBD2sEa1eZpeKkU29Gk";
+  private static final String TWITTER_SECRET = " sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm";
+
 
   // Used to load the 'native-lib' library on application startup.
   static {
@@ -20,6 +31,9 @@ public class MainActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+    Fabric.with(this, new Crashlytics(), new Twitter(authConfig));
+    Optimizely.startOptimizelyWithAPIToken(getString(R.string.com_optimizely_api_key), getApplication());
     setContentView(R.layout.activity_main);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
@@ -32,10 +46,6 @@ public class MainActivity extends AppCompatActivity {
             .setAction("Action", null).show();
       }
     });
-
-    // Example of a call to a native method
-    TextView tv = (TextView) findViewById(R.id.sample_text);
-    tv.setText(stringFromJNI());
   }
 
   @Override
