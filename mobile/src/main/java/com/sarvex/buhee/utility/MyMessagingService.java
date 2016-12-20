@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sarvex.buhee;
+package com.sarvex.buhee.utility;
 
 import android.app.PendingIntent;
 import android.app.Service;

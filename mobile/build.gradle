@@ -35,6 +35,9 @@ android {
       shrinkResources true
       zipAlignEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
+      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     beta {
@@ -44,6 +47,9 @@ android {
       zipAlignEnabled true
       versionNameSuffix '-BETA'
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
+      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     alpha {
@@ -53,6 +59,9 @@ android {
       zipAlignEnabled true
       versionNameSuffix '-ALPHA'
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
+      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     staging {
@@ -63,12 +72,18 @@ android {
       versionNameSuffix '-STAGING'
       debuggable true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
+      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     debug {
       minifyEnabled false
       versionNameSuffix '-DEBUG'
       debuggable true
+
+      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
+      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
   }
 
@@ -102,7 +117,6 @@ dependencies {
   compile 'com.android.support:support-v13:25.1.0'
   testCompile 'junit:junit:4.12'
 
-  // Leak Canary
   debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
   releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
   alphaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
@@ -110,7 +124,6 @@ dependencies {
   stagingCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
-  // Testing
   testCompile 'org.robolectric:robolectric:3.0'
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2') {
     exclude group: 'com.android.support', module: 'support-annotations'
@@ -119,28 +132,21 @@ dependencies {
     exclude group: 'com.android.support', module: 'support-annotations'
   }
 
-  // Icepick
   compile 'frankiesardo:icepick:3.2.0'
   provided 'frankiesardo:icepick-processor:3.2.0'
-
-  // ButterKnife
   compile 'com.jakewharton:butterknife:8.4.0'
   apt 'com.jakewharton:butterknife-compiler:8.4.0'
-
-  // Glide
   compile 'com.github.bumptech.glide:glide:3.7.0'
-
-  // Retrofit
   compile 'com.google.code.gson:gson:2.6.2'
   compile 'com.squareup.retrofit2:retrofit:2.1.0'
   compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-
-  // RxJava
   compile 'io.reactivex:rxandroid:1.2.0'
   compile 'io.reactivex:rxjava:1.1.4'
-
-  // Event Bus
   compile 'org.greenrobot:eventbus:3.0.0'
+  compile 'com.mikepenz:iconics-core:2.8.1@aar'
+  compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
+  compile 'com.mikepenz:fontawesome-typeface:4.7.0.0@aar'
+  compile 'com.mikepenz:community-material-typeface:1.7.22.1@aar'
 
   compile('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
     transitive = true;

@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.sarvex.buhee">
 
+  <uses-permission android:name="android.permission.INTERNET"/>
+
   <application
     android:allowBackup="true"
     android:icon="@mipmap/ic_launcher"
@@ -23,15 +25,15 @@
       android:name="com.google.android.gms.car.application"
       android:resource="@xml/automotive_app_desc"/>
 
-    <service android:name=".MyMessagingService">
+    <service android:name=".utility.MyMessagingService">
     </service>
 
-    <receiver android:name=".MessageReadReceiver">
+    <receiver android:name=".utility.MessageReadReceiver">
       <intent-filter>
         <action android:name="com.sarvex.buhee.ACTION_MESSAGE_READ"/>
       </intent-filter>
     </receiver>
-    <receiver android:name=".MessageReplyReceiver">
+    <receiver android:name=".utility.MessageReplyReceiver">
       <intent-filter>
         <action android:name="com.sarvex.buhee.ACTION_MESSAGE_REPLY"/>
       </intent-filter>
@@ -40,7 +42,15 @@
     <meta-data
       android:name="io.fabric.ApiKey"
       android:value="a355546c764b59eac93b935815405095a72745ca"/>
+
+    <activity android:name=".login.LoginActivity">
+    </activity>
+    <activity android:name=".login.ForgotActivity">
+    </activity>
+    <activity android:name=".login.SignupActivity">
+    </activity>
+    <activity android:name=".login.ProfileActivity">
+    </activity>
   </application>
 
-  <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

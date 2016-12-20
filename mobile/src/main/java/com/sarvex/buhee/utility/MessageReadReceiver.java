@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.sarvex.buhee;
+package com.sarvex.buhee.utility;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
