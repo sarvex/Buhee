@@ -11,7 +11,7 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
     <activity
-      android:name=".MainActivity"
+      android:name=".main.MainActivity"
       android:label="@string/app_name"
       android:theme="@style/AppTheme.NoActionBar">
       <intent-filter>
@@ -50,6 +50,18 @@
     <activity android:name=".login.SignupActivity">
     </activity>
     <activity android:name=".login.ProfileActivity">
+    </activity>
+    <activity android:name=".entry.AddEntryActivity">
+    </activity>
+    <activity android:name=".entry.RemoveEntryActivity">
+    </activity>
+    <activity android:name=".ledger.AddLedgerActivity">
+    </activity>
+    <activity android:name=".ledger.SettleLedgerActivity">
+    </activity>
+    <activity android:name=".ledger.RemoveLedgerActivity">
+    </activity>
+    <activity android:name=".entry.SettleEntryActivity">
     </activity>
   </application>
 

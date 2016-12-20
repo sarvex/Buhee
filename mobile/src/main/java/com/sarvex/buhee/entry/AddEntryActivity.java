@@ -1,4 +1,4 @@
-package com.sarvex.buhee.login;
+package com.sarvex.buhee.entry;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -7,10 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.sarvex.buhee.R;
 
-import butterknife.ButterKnife;
-import icepick.Icepick;
-
-public class ProfileActivity extends AppCompatActivity {
+public class AddEntryActivity extends AppCompatActivity {
 
   @Override
   protected void attachBaseContext(Context newBase) {
@@ -18,17 +15,8 @@ public class ProfileActivity extends AppCompatActivity {
   }
 
   @Override
-  protected void onSaveInstanceState(Bundle outState) {
-    super.onSaveInstanceState(outState);
-    Icepick.saveInstanceState(this, outState);
-  }
-
-  @Override
   protected void onCreate(Bundle savedInstanceState) {
-    Icepick.restoreInstanceState(this, savedInstanceState);
     super.onCreate(savedInstanceState);
-    ButterKnife.bind(this);
-
-    setContentView(R.layout.activity_profile);
+    setContentView(R.layout.activity_add_entry);
   }
 }

@@ -1,4 +1,4 @@
-package com.sarvex.buhee.ledger;
+package com.sarvex.buhee.entry.item;
 
 import android.os.Parcel;
 import android.os.Parcelable;
