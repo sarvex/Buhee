@@ -2,14 +2,10 @@ package com.sarvex.buhee.main;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ShareActionProvider;
@@ -19,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
+import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
@@ -31,9 +28,6 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.sarvex.buhee.R;
 import com.sarvex.buhee.entry.AddEntryActivity;
 import com.sarvex.buhee.entry.RemoveEntryActivity;
-import com.sarvex.buhee.entry.SettleEntryActivity;
-import com.sarvex.buhee.ledger.AddLedgerActivity;
-import com.sarvex.buhee.ledger.RemoveLedgerActivity;
 import com.sarvex.buhee.ledger.SettleLedgerActivity;
 import com.sarvex.buhee.login.LoginActivity;
 import com.sarvex.buhee.login.ProfileActivity;
@@ -46,7 +40,6 @@ import icepick.Icepick;
 public class MainActivity extends AppCompatActivity {
 
   @BindView(R.id.toolbar) Toolbar toolbar;
-  @BindView(R.id.viewpager) ViewPager viewPager;
   @BindView(R.id.tabs) TabLayout tabLayout;
   @BindView(R.id.add_button) FloatingActionButton addButton;
   @BindView(R.id.sub_button) FloatingActionButton subButton;
@@ -84,21 +77,10 @@ public class MainActivity extends AppCompatActivity {
 
     setupDrawer();
 
-    setupViewPager();
-
     setupCollapsingToolbar();
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
-
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null).show();
-      }
-    });
   }
 
   @Override
@@ -127,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
    * A native method that is implemented by the 'native-lib' native library,
    * which is packaged with this application.
    */
-  public native String stringFromJNI();
+//  public native String stringFromJNI();
 
   private void setupToolbar() {
     setSupportActionBar(toolbar);
@@ -161,8 +143,8 @@ public class MainActivity extends AppCompatActivity {
         .withAccountHeader(accountHeader)
         .withHeader(R.layout.header)
         .addDrawerItems(
-            new PrimaryDrawerItem().withName("Order T-Shirts").withIcon(Icon.gmd_local_florist),
-            new PrimaryDrawerItem().withName("Profile").withIcon(Icon.gmd_person)
+            new PrimaryDrawerItem().withName("Order T-Shirts").withIcon(GoogleMaterial.Icon.gmd_local_florist),
+            new PrimaryDrawerItem().withName("Profile").withIcon(GoogleMaterial.Icon.gmd_person)
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                   @Override
                   public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
@@ -170,56 +152,14 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                   }
                 }),
-            new PrimaryDrawerItem().withName("Settings").withIcon(Icon.gmd_settings),
-            new PrimaryDrawerItem().withName("Logout").withIcon(FontAwesome.Icon.faw_sign_out)
-                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
-                  @Override
-                  public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
-                  }
-                }))
+            new PrimaryDrawerItem().withName("Settings").withIcon(GoogleMaterial.Icon.gmd_settings),
+            new PrimaryDrawerItem().withName("Logout").withIcon(FontAwesome.Icon.faw_sign_out))
         .build();
 
     drawer.getRecyclerView().setVerticalScrollBarEnabled(false);
   }
 
-  private void setupViewPager() {
-    if (viewPager != null) {
-      PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
-      viewPager.setAdapter(adapter);
-    }
 
-    tabLayout.setupWithViewPager(viewPager);
-    tabLayout.setOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(viewPager) {
-      @Override
-      public void onTabSelected(TabLayout.Tab tab) {
-        super.onTabSelected(tab);
-        switch (tab.getText().toString()) {
-          case MainActivity.HOME:
-            addButton.hide();
-            break;
-          case MainActivity.REFERRALS:
-            addButton.show();
-            break;
-          case MainActivity.TEAM:
-            addButton.show();
-            break;
-          case MainActivity.VIDEOS:
-            addButton.hide();
-            break;
-        }
-      }
-
-      @Override
-      public void onTabUnselected(Tab tab) {
-        super.onTabUnselected(tab);
-      }
-
-      @Override
-      public void onTabReselected(Tab tab) {
-        super.onTabReselected(tab);
-      }
-    });
-  }
 
   private void setupCollapsingToolbar() {
     CollapsingToolbarLayout collapsingToolbar = (CollapsingToolbarLayout) findViewById(R.id.collapse_toolbar);
@@ -231,49 +171,26 @@ public class MainActivity extends AppCompatActivity {
   }
 
   protected void toLoginActivity() {
-    startActivity(new Intent(this, LoginActivity.class)
-        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+    startActivity(new Intent(this, LoginActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
   }
 
   private void toProfileActivity() {
-    startActivity(new Intent(this, ProfileActivity.class)
-        .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+    startActivity(new Intent(this, ProfileActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
   }
 
   @OnClick(R.id.add_button)
   public void onAddButtonClicked(View view) {
-    switch (viewPager.getCurrentItem()) {
-      case 1:
-        startActivityForResult(new Intent(this, AddLedgerActivity.class), MainActivity.ADD_LEDGER);
-        break;
-      default:
-        startActivityForResult(new Intent(this, AddEntryActivity.class), MainActivity.ADD_ENTRY);
-        break;
-    }
+    startActivity(new Intent(this, AddEntryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
   }
 
   @OnClick(R.id.ok_button)
   public void onOkButtonClicked(View view) {
-    switch (viewPager.getCurrentItem()) {
-      case 1:
-        startActivityForResult(new Intent(this, SettleLedgerActivity.class), MainActivity.SETTLE_LEDGER);
-        break;
-      default:
-        startActivityForResult(new Intent(this, SettleEntryActivity.class), MainActivity.SETTLE_ENTRY);
-        break;
-    }
+    startActivity(new Intent(this, SettleLedgerActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
   }
 
-  @OnClick(R.id.add_button)
-  public void onAddButtonClicked(View view) {
-    switch (viewPager.getCurrentItem()) {
-      case 1:
-        startActivityForResult(new Intent(this, RemoveLedgerActivity.class), MainActivity.REMOVE_LEDGER);
-        break;
-      default:
-        startActivityForResult(new Intent(this, RemoveEntryActivity.class), MainActivity.REMOVE_ENTRY);
-        break;
-    }
+  @OnClick(R.id.sub_button)
+  public void onSubButtonClicked(View view) {
+    startActivity(new Intent(this, RemoveEntryActivity.class).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
   }
 
 }

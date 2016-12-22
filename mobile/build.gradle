@@ -1,7 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'io.fabric'
 apply plugin: 'com.jakewharton.hugo'
-apply plugin: 'android-apt'
 
 android {
   signingConfigs {
@@ -10,24 +9,22 @@ android {
       keyAlias "release"
     }
   }
-
-  compileSdkVersion Integer.parseInt(project.COMPILE_SDK)
-  buildToolsVersion project.BUILD_TOOLS
+  compileSdkVersion 25
+  buildToolsVersion '25.0.2'
   defaultConfig {
     applicationId "com.sarvex.buhee"
-    minSdkVersion Integer.parseInt(project.MIN_SDK)
-    targetSdkVersion Integer.parseInt(project.TARGET_SDK)
-    versionCode Integer.parseInt(project.VERSION_CODE)
+    minSdkVersion 21
+    targetSdkVersion 25
     versionName project.VERSION_NAME
     multiDexEnabled true
+    buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
+    buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-//    externalNativeBuild {
-//      cmake {
-//        cppFlags "-std=c++11 -frtti -fexceptions"
-//      }
-//    }
+    jackOptions {
+      enabled true
+    }
+    signingConfig signingConfigs.release
   }
-
   buildTypes {
     release {
       signingConfig signingConfigs.release
@@ -36,8 +33,6 @@ android {
       zipAlignEnabled true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
 
-      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
-      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     beta {
@@ -47,9 +42,6 @@ android {
       zipAlignEnabled true
       versionNameSuffix '-BETA'
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
-      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     alpha {
@@ -59,9 +51,6 @@ android {
       zipAlignEnabled true
       versionNameSuffix '-ALPHA'
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
-      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     staging {
@@ -72,58 +61,45 @@ android {
       versionNameSuffix '-STAGING'
       debuggable true
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-
-      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
-      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
 
     debug {
       minifyEnabled false
       versionNameSuffix '-DEBUG'
       debuggable true
-
-      buildConfigField "String", "TWITTER_KEY", "\"yphxIgeBD2sEa1eZpeKkU29Gk\""
-      buildConfigField "String", "TWITTER_SECRET", "\"sVHomqlCw9O9OLhIakpVpEjN7AaT0gYxzZ2dJuj9vXL90FGALm\""
     }
   }
-
   lintOptions {
     disable 'InvalidPackage'
     disable 'MissingTranslation'
     abortOnError false
   }
-
   dexOptions {
     javaMaxHeapSize "4g"
   }
-
-  externalNativeBuild {
-    cmake {
-      path "CMakeLists.txt"
-    }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  productFlavors {
   }
 }
 
 dependencies {
-  compile fileTree(dir: 'libs', include: ['*.jar'])
+  wearApp project(':wear')
+  compile fileTree(include: ['*.jar'], dir: 'libs')
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
-  wearApp project(':wear')
-
-
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2') {
     exclude group: 'com.android.support', module: 'support-annotations'
   }
   androidTestCompile('com.android.support.test:runner:0.3') {
     exclude group: 'com.android.support', module: 'support-annotations'
   }
-
-
   compile('com.mikepenz:materialdrawer:5.8.1@aar') {
     transitive = true
   }
-
   compile('com.crashlytics.sdk.android:crashlytics:2.6.5@aar') {
     transitive = true;
   }
@@ -164,7 +140,7 @@ dependencies {
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
   testCompile 'org.robolectric:robolectric:3.0'
   alphaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
-  apt 'com.jakewharton:butterknife-compiler:8.4.0'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
   betaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
   debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
   provided 'frankiesardo:icepick-processor:3.2.0'
