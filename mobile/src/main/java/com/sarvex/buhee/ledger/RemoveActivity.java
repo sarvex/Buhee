@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.sarvex.buhee.R;
 
-public class RemoveLedgerActivity extends AppCompatActivity {
+public class RemoveActivity extends AppCompatActivity {
 
   @Override
   protected void attachBaseContext(Context newBase) {

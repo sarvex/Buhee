@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.sarvex.buhee.R;
 
-public class AddLedgerActivity extends AppCompatActivity {
+public class SettleActivity extends AppCompatActivity {
 
   @Override
   protected void attachBaseContext(Context newBase) {
@@ -17,6 +17,6 @@ public class AddLedgerActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_add_ledger);
+    setContentView(R.layout.activity_settle_ledger);
   }
 }

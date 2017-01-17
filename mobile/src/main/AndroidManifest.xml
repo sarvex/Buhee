@@ -43,26 +43,16 @@
       android:name="io.fabric.ApiKey"
       android:value="a355546c764b59eac93b935815405095a72745ca"/>
 
-    <activity android:name=".login.LoginActivity">
-    </activity>
-    <activity android:name=".login.ForgotActivity">
-    </activity>
-    <activity android:name=".login.SignupActivity">
-    </activity>
-    <activity android:name=".login.ProfileActivity">
-    </activity>
-    <activity android:name=".entry.AddEntryActivity">
-    </activity>
-    <activity android:name=".entry.RemoveEntryActivity">
-    </activity>
-    <activity android:name=".ledger.AddLedgerActivity">
-    </activity>
-    <activity android:name=".ledger.SettleLedgerActivity">
-    </activity>
-    <activity android:name=".ledger.RemoveLedgerActivity">
-    </activity>
-    <activity android:name=".entry.SettleEntryActivity">
-    </activity>
+    <activity android:name=".login.LoginActivity"/>
+    <activity android:name=".login.ForgotActivity"/>
+    <activity android:name=".login.SignupActivity"/>
+    <activity android:name=".login.ProfileActivity"/>
+    <activity android:name=".entry.AddActivity"/>
+    <activity android:name=".entry.RemoveActivity"/>
+    <activity android:name=".ledger.AddActivity"/>
+    <activity android:name=".ledger.SettleActivity"/>
+    <activity android:name=".ledger.RemoveActivity"/>
+    <activity android:name=".entry.SettleActivity"/>
   </application>
 
 </manifest>

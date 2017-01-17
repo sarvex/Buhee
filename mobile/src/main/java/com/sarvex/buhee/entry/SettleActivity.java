@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.sarvex.buhee.R;
 
-public class SettleEntryActivity extends AppCompatActivity {
+public class SettleActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
