@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.mikepenz.iconics.context.IconicsContextWrapper;
 import com.sarvex.buhee.R;
 
-public class RemoveEntryActivity extends AppCompatActivity {
+public class AddActivity extends AppCompatActivity {
 
   @Override
   protected void attachBaseContext(Context newBase) {
@@ -17,6 +17,6 @@ public class RemoveEntryActivity extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_sub_entry);
+    setContentView(R.layout.activity_add_entry);
   }
 }
