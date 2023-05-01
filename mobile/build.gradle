@@ -135,7 +135,7 @@ dependencies {
   compile 'com.mikepenz:iconics-core:5.4.0@aar'
   compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
   compile 'com.mikepenz:fontawesome-typeface:4.7.0.2@aar'
-  compile 'com.mikepenz:community-material-typeface:1.9.32.2@aar'
+  compile 'com.mikepenz:community-material-typeface:7.0.96.0-kotlin@aar'
   testCompile 'junit:junit:4.13.2'
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
   testCompile 'org.robolectric:robolectric:3.8'
