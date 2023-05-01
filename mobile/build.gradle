@@ -142,7 +142,7 @@ dependencies {
   alphaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
   annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
   betaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-  debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+  debugCompile 'com.squareup.leakcanary:leakcanary-android:1.6.3'
   provided 'frankiesardo:icepick-processor:3.2.0'
   releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
   stagingCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
