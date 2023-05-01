@@ -136,7 +136,7 @@ dependencies {
   compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
   compile 'com.mikepenz:fontawesome-typeface:4.7.0.2@aar'
   compile 'com.mikepenz:community-material-typeface:1.9.32.2@aar'
-  testCompile 'junit:junit:4.12'
+  testCompile 'junit:junit:4.13.2'
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
   testCompile 'org.robolectric:robolectric:3.0'
   alphaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
