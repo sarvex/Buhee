@@ -138,7 +138,7 @@ dependencies {
   compile 'com.mikepenz:community-material-typeface:1.7.22.1@aar'
   testCompile 'junit:junit:4.12'
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-  testCompile 'org.robolectric:robolectric:3.0'
+  testCompile 'org.robolectric:robolectric:3.8'
   alphaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
   annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
   betaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
