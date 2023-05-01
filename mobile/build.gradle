@@ -140,7 +140,7 @@ dependencies {
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
   testCompile 'org.robolectric:robolectric:3.8'
   alphaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
-  annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+  annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
   betaCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
   debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
   provided 'frankiesardo:icepick-processor:3.2.0'
