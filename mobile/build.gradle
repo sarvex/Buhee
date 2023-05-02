@@ -134,7 +134,7 @@ dependencies {
   compile 'org.greenrobot:eventbus:3.3.1'
   compile 'com.mikepenz:iconics-core:5.4.0@aar'
   compile 'com.mikepenz:google-material-typeface:2.2.0.3.original@aar'
-  compile 'com.mikepenz:fontawesome-typeface:4.7.0.2@aar'
+  compile 'com.mikepenz:fontawesome-typeface:5.13.3.0-kotlin@aar'
   compile 'com.mikepenz:community-material-typeface:7.0.96.0-kotlin@aar'
   testCompile 'junit:junit:4.13.2'
   testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.3'
